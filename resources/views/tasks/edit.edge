@@ -1,0 +1,24 @@
+@layout('main')
+	@section('content')
+		<h1>Editar Tareas</h1>
+		<form class="mt-5" action="{{ '/tasks/' + task.id + '?_method=PUT' }}" method="post">
+			{{ csrfField() }} <!--Seguridad de Adonis-->
+			<div class="form-group">
+				<label>Titulo
+					<input autocomplete="off" autofocus type="text" name="title" class="form-control"
+					value="{{ task.title }}">
+				</label>
+			</div>
+
+			<div class="form-group">
+				<label>Mensaje
+					<input autocomplete="off" type="text" name="body" class="form-control"
+					value="{{ task.body }}">
+				</label>
+			</div>
+
+			<button class="btn btn-primary" type="submit">
+				Actualizar
+			</button>
+		</form>
+	@endsection

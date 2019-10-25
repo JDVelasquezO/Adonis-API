@@ -1,0 +1,15 @@
+@layout('main')
+	@section('content')
+		<h1>{{ task.title }}</h1>
+		<p>
+			{{ task.body }}
+		</p>
+		<hr>
+		<a class="btn btn-dark float-left" href="/tasks/edit/{{ task.id }}">
+			Editar
+		</a>
+		<form action="{{ '/tasks/' + task.id + '?_method=DELETE' }}" method="post">
+			{{ csrfField() }}
+			<button class="btn btn-danger" type="submit">Eliminar</button>
+		</form>
+	@endsection
